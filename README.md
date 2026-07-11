@@ -18,6 +18,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Contact Form Email Setup
+
+The contact form posts to `app/api/contact/route.ts` and sends email using SMTP.
+
+1. Copy `.env.example` to `.env.local`.
+2. Set these variables in `.env.local`:
+	- `CONTACT_EMAIL_TO` (destination inbox)
+	- `SMTP_HOST`
+	- `SMTP_PORT`
+	- `SMTP_USER`
+	- `SMTP_PASS`
+	- `SMTP_FROM`
+3. Restart the dev server after changing environment variables.
+
+For Gmail, use an App Password for `SMTP_PASS`.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
