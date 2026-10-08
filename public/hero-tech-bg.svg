@@ -1,0 +1,77 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111C"/>
+      <stop offset="0.38" stop-color="#0B1727"/>
+      <stop offset="0.7" stop-color="#0E1E2D"/>
+      <stop offset="1" stop-color="#0A1018"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1220 398) rotate(87.226) scale(420 520)">
+      <stop stop-color="#5FA8FF" stop-opacity="0.52"/>
+      <stop offset="0.28" stop-color="#1B5FD7" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#0A0F18" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowGold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 760) rotate(90) scale(260 460)">
+      <stop stop-color="#F2C75A" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#F2C75A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurLarge" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="blurSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glowBlue)"/>
+  <rect width="1600" height="1000" fill="url(#glowGold)"/>
+
+  <g opacity="0.8">
+    <rect x="1060" y="160" width="320" height="170" rx="24" fill="#0E1A2B" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="1100" y="196" width="124" height="14" rx="7" fill="#F6F8FB" fill-opacity="0.7"/>
+    <rect x="1100" y="222" width="170" height="12" rx="6" fill="#7BAAF3" fill-opacity="0.7"/>
+    <rect x="1100" y="248" width="148" height="12" rx="6" fill="#F4C95A" fill-opacity="0.7"/>
+    <circle cx="1382" cy="246" r="32" fill="#10264A" stroke="#E7BF52" stroke-opacity="0.7"/>
+    <path d="M1368 246H1396" stroke="#E7BF52" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1382 232V260" stroke="#E7BF52" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.72">
+    <path d="M1082 474C1186 394 1326 379 1478 420" stroke="#8AB7FF" stroke-width="1.6" stroke-opacity="0.7"/>
+    <path d="M1090 585C1215 535 1344 540 1476 593" stroke="#8AB7FF" stroke-width="1.6" stroke-opacity="0.7"/>
+    <path d="M1056 660C1202 596 1348 618 1458 704" stroke="#E4B746" stroke-width="1.4" stroke-opacity="0.75"/>
+    <circle cx="1090" cy="474" r="7" fill="#F2C75A"/>
+    <circle cx="1210" cy="424" r="6" fill="#8AB7FF"/>
+    <circle cx="1384" cy="432" r="6" fill="#8AB7FF"/>
+    <circle cx="1478" cy="420" r="8" fill="#F2C75A"/>
+    <circle cx="1056" cy="660" r="8" fill="#F2C75A"/>
+    <circle cx="1458" cy="704" r="8" fill="#7FB2FF"/>
+  </g>
+
+  <g opacity="0.35" filter="url(#blurLarge)">
+    <circle cx="1180" cy="286" r="180" fill="#225BC4"/>
+    <circle cx="1335" cy="720" r="160" fill="#E1B341"/>
+  </g>
+
+  <g opacity="0.42" filter="url(#blurSoft)">
+    <path d="M1260 295L1425 390L1260 620L1102 520L1260 295Z" fill="#112843"/>
+  </g>
+
+  <g opacity="0.52">
+    <path d="M1040 130L1408 130" stroke="#D4E4FF" stroke-opacity="0.2" stroke-width="1"/>
+    <path d="M1040 250L1428 250" stroke="#D4E4FF" stroke-opacity="0.18" stroke-width="1"/>
+    <path d="M1040 370L1418 370" stroke="#D4E4FF" stroke-opacity="0.2" stroke-width="1"/>
+    <path d="M1040 490L1418 490" stroke="#D4E4FF" stroke-opacity="0.18" stroke-width="1"/>
+    <path d="M1040 610L1424 610" stroke="#D4E4FF" stroke-opacity="0.18" stroke-width="1"/>
+    <path d="M1040 730L1418 730" stroke="#D4E4FF" stroke-opacity="0.2" stroke-width="1"/>
+    <path d="M1040 850L1412 850" stroke="#D4E4FF" stroke-opacity="0.18" stroke-width="1"/>
+  </g>
+
+  <g opacity="0.45" stroke="#D4E4FF" stroke-opacity="0.18">
+    <path d="M1140 110V900"/>
+    <path d="M1220 90V920"/>
+    <path d="M1295 110V910"/>
+    <path d="M1380 120V900"/>
+  </g>
+</svg>
