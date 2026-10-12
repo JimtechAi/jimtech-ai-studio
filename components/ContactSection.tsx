@@ -3,11 +3,11 @@ import { Icon } from './Icon';
 import ContactForm from './ContactForm';
 import { contactInfo } from '@/data/contact';
 
-export default function ContactSection() {
+export default function ContactSection({ pageHeading = false }: { pageHeading?: boolean }) {
   return (
     <section className="section section--dark contact-section" id="contact">
       <div className="jt-container">
-        <div className="contact-heading"><SectionHeading eyebrow="Start a conversation" title="Let’s Build Something That Moves Your Business Forward." description="Tell us what you want to build, improve or automate. We’ll follow up to understand the project and discuss a sensible next step." light /></div>
+        <div className="contact-heading"><SectionHeading eyebrow="Start a conversation" title="Let’s Build Something That Moves Your Business Forward." description="Tell us what you want to build, improve or automate. We’ll follow up to understand the project and discuss a sensible next step." light level={pageHeading ? 1 : 2} /></div>
         <div className="contact-layout">
           <div className="contact-copy"><p className="contact-lede">Let’s build something useful for your business.</p><p>Whether you need a new website, a smarter workflow or a connected digital platform, start with a conversation.</p>
             <div className="contact-methods">

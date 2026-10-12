@@ -6,7 +6,7 @@ import ProjectGallery from './ProjectGallery';
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
-    <main className="case-main">
+    <main id="main-content" tabIndex={-1} className="case-main">
       <section className="case-hero section--dark">
         <div className="jt-container">
           <nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/work">Work</Link><span>/</span><span aria-current="page">{project.title}</span></nav>

@@ -51,21 +51,21 @@ const insightArticles = [
 ];
 
 export const metadata: Metadata = {
-  title: 'AI, Website Development & Business Automation Insights',
+  title: 'AI & Business Automation Insights',
   description:
-    'Explore practical insights on AI, website development, business automation, digital transformation and digital growth from JimTech AI Studio.',
+    'Practical insights on AI, website development, business automation and digital growth from JimTech AI Studio.',
   alternates: { canonical: 'https://jimtech.online/insights' },
   openGraph: {
     type: 'website',
     url: 'https://jimtech.online/insights',
-    title: 'AI, Website Development & Business Automation Insights | JimTech AI Studio',
+    title: 'AI & Business Automation Insights | JimTech AI Studio',
     description:
       'JimTech AI Studio shares practical ideas on digital transformation, AI implementation, website strategy, and business automation for modern growth.',
-    images: [{ url: '/images/insights-hero.webp.jpeg', width: 1600, height: 900, alt: 'JimTech AI Studio insights and digital strategy hero' }],
+    images: [{ url: '/images/insights-hero.webp.jpeg', width: 1280, height: 720, alt: 'JimTech AI Studio insights and digital strategy hero' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI, Website Development & Business Automation Insights | JimTech AI Studio',
+    title: 'AI & Business Automation Insights | JimTech AI Studio',
     description:
       'Read practical insights on AI, website development, automation and digital growth from JimTech AI Studio.',
     images: ['/images/insights-hero.webp.jpeg'],
@@ -76,7 +76,7 @@ export default function InsightsPage() {
   return (
     <>
       <Navbar />
-      <main className="insight-page">
+      <main id="main-content" tabIndex={-1} className="insight-page">
         <section className="insight-hero" aria-labelledby="insights-hero-title">
           <div className="insight-hero__media" aria-hidden="true">
             <Image

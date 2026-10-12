@@ -11,21 +11,21 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'JimTech AI Studio | AI-Powered Websites, Automation & Digital Growth',
+  title: 'JimTech AI Studio | AI-Powered Websites & Automation',
   description:
-    'JimTech AI Studio builds AI-powered websites, business automation, AI solutions and digital transformation systems for businesses in Lagos, Nigeria and globally.',
+    'JimTech AI Studio builds AI-powered websites, business automation and digital systems for businesses in Lagos, Nigeria and worldwide.',
   alternates: { canonical: 'https://jimtech.online/' },
   openGraph: {
     type: 'website',
     url: 'https://jimtech.online/',
-    title: 'JimTech AI Studio | AI-Powered Websites, Automation & Digital Growth',
+    title: 'JimTech AI Studio | AI-Powered Websites & Automation',
     description:
       'JimTech AI Studio delivers premium website development, business automation, AI solutions and digital transformation for ambitious businesses.',
     images: [{ url: '/jimtech-ai-studio-logo.png', width: 612, height: 408, alt: 'JimTech AI Studio logo' }],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'JimTech AI Studio | AI-Powered Websites, Automation & Digital Growth',
+    card: 'summary',
+    title: 'JimTech AI Studio | AI-Powered Websites & Automation',
     description:
       'Premium website development, AI-powered systems, business automation and digital transformation for businesses ready to grow.',
     images: ['/jimtech-ai-studio-logo.png'],
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <Capabilities />
         <Services />

@@ -69,21 +69,21 @@ const technologyStack = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'About JimTech AI Studio | AI Digital Agency',
+  title: 'About Our AI Digital Agency',
   description:
-    'Learn about JimTech AI Studio, an AI digital agency in Lagos, Nigeria building premium websites, business automation systems, AI solutions and digital transformation experiences for ambitious businesses.',
+    'JimTech AI Studio is a Lagos-based AI digital agency building premium websites, automation systems and AI solutions for ambitious businesses.',
   alternates: { canonical: 'https://jimtech.online/about' },
   openGraph: {
     type: 'website',
     url: 'https://jimtech.online/about',
-    title: 'About JimTech AI Studio | AI Digital Agency',
+    title: 'About Our AI Digital Agency | JimTech AI Studio',
     description:
       'JimTech AI Studio is a digital agency focused on website development, AI solutions, business automation and digital transformation for growing businesses.',
-    images: [{ url: '/images/about-hero-section.webp.jpeg', width: 1600, height: 900, alt: 'JimTech AI Studio founder and digital agency team environment' }],
+    images: [{ url: '/images/about-hero-section.webp.jpeg', width: 1280, height: 720, alt: 'JimTech AI Studio founder and digital agency team environment' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About JimTech AI Studio | AI Digital Agency',
+    title: 'About Our AI Digital Agency | JimTech AI Studio',
     description:
       'Learn how JimTech AI Studio creates premium websites, AI systems and digital experiences for modern businesses.',
     images: ['/images/about-hero-section.webp.jpeg'],
@@ -94,7 +94,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="about-page">
+      <main id="main-content" tabIndex={-1} className="about-page">
         <section className="about-hero" aria-labelledby="about-hero-title">
           <div className="about-hero__media" aria-hidden="true">
             <Image

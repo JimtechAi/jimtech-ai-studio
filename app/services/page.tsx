@@ -96,21 +96,21 @@ const process = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Website Development, AI Solutions & Business Automation Services',
+  title: 'Website Development & AI Automation Services',
   description:
-    'JimTech AI Studio offers premium website development, AI-powered websites, business automation, AI solutions, e-commerce development, digital transformation and ongoing website maintenance for businesses in Lagos, Nigeria and globally.',
+    'Website development, AI solutions, business automation and e-commerce from JimTech AI Studio, helping businesses in Lagos and worldwide grow.',
   alternates: { canonical: 'https://jimtech.online/services' },
   openGraph: {
     type: 'website',
     url: 'https://jimtech.online/services',
-    title: 'Website Development, AI Solutions & Business Automation Services | JimTech AI Studio',
+    title: 'Website Development & AI Automation Services | JimTech AI Studio',
     description:
       'From premium websites to AI solutions and business automation, JimTech AI Studio helps brands build digital systems that support long-term growth.',
-    images: [{ url: '/images/hero.webp.jpeg', width: 1600, height: 900, alt: 'JimTech AI Studio services and digital strategy overview' }],
+    images: [{ url: '/images/hero.webp.jpeg', width: 1280, height: 720, alt: 'JimTech AI Studio services and digital strategy overview' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Website Development, AI Solutions & Business Automation Services | JimTech AI Studio',
+    title: 'Website Development & AI Automation Services | JimTech AI Studio',
     description:
       'Explore website development, AI-powered websites, business automation, e-commerce and digital transformation services from JimTech AI Studio.',
     images: ['/images/hero.webp.jpeg'],
@@ -121,7 +121,7 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <main className="service-page">
+      <main id="main-content" tabIndex={-1} className="service-page">
         <section className="service-hero" aria-label="JimTech founder in a premium office with AI interfaces and digital business technology">
           <div className="jt-container service-hero__inner">
             <div className="service-hero__content">

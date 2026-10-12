@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jimtech.online"),
   applicationName: "JimTech AI Studio",
   title: {
-    default: "JimTech AI Studio | AI-Powered Websites, Automation & Digital Growth",
+    default: "JimTech AI Studio | AI-Powered Websites & Automation",
     template: "%s | JimTech AI Studio",
   },
   description:
-    "JimTech AI Studio is an AI-powered digital agency specializing in premium website development, business automation, AI solutions, and digital transformation for businesses in Lagos, Nigeria and around the world.",
+    "JimTech AI Studio is an AI-powered digital agency building premium websites, business automation and AI solutions for businesses in Lagos, Nigeria and worldwide.",
   keywords: [
     "JimTech AI Studio",
     "AI-powered websites",
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: "https://jimtech.online",
     siteName: "JimTech AI Studio",
-    title: "JimTech AI Studio | AI-Powered Websites, Automation & Digital Growth",
+    title: "JimTech AI Studio | AI-Powered Websites & Automation",
     description:
       "JimTech AI Studio designs premium websites, automations, and AI-powered digital systems for businesses seeking digital growth and operational efficiency.",
     images: [{ url: "/jimtech-ai-studio-logo.png", width: 612, height: 408, alt: "JimTech AI Studio logo" }],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "JimTech AI Studio | AI-Powered Websites, Automation & Digital Growth",
+    card: "summary",
+    title: "JimTech AI Studio | AI-Powered Websites & Automation",
     description:
       "Premium websites, business automation, AI solutions and digital transformation for ambitious businesses in Lagos, Nigeria and beyond.",
     images: ["/jimtech-ai-studio-logo.png"],
@@ -116,6 +116,7 @@ export default function RootLayout({
       className={`${geistSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         {children}
         <FloatingSocialButtons />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />

@@ -22,9 +22,20 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
       });
-      const result = (await response.json()) as { message?: string };
+      let serverMessage: string | undefined;
+      try {
+        const result = (await response.json()) as { message?: unknown } | null;
+        if (typeof result?.message === 'string') serverMessage = result.message;
+      } catch {
+        // Proxies and gateways can return HTML; fall back to a generic message below.
+      }
       if (!response.ok) {
-        setStatus({ type: 'error', message: result.message ?? 'Unable to send your message right now. Please try again.' });
+        setStatus({
+          type: 'error',
+          message: serverMessage ?? (response.status >= 500
+            ? 'Something went wrong on our side. Please try again shortly or contact us on WhatsApp.'
+            : 'Unable to send your message right now. Please try again.'),
+        });
         return;
       }
       form.reset();

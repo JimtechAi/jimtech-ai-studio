@@ -7,9 +7,9 @@ import { portfolioProjects } from '@/data/projects';
 import { Icon } from '@/components/Icon';
 
 export const metadata: Metadata = {
-  title: 'Website Development Portfolio | JimTech AI Studio',
+  title: 'Website Development Portfolio',
   description:
-    'Explore the JimTech AI Studio portfolio of web design, website development, AI-powered websites, digital experiences and business websites for Nigerian and global brands.',
+    'Explore JimTech AI Studio’s portfolio of websites, AI-powered digital experiences and business platforms for Nigerian and global brands.',
   alternates: { canonical: 'https://jimtech.online/work' },
   openGraph: {
     type: 'website',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Website Development Portfolio | JimTech AI Studio',
     description:
       'Browse the JimTech AI Studio website development portfolio featuring premium digital experiences, business websites, and AI-powered solutions.',
-    images: [{ url: '/images/work-hero-section-image.webp.jpeg', width: 1600, height: 900, alt: 'JimTech AI Studio portfolio and web design showcase' }],
+    images: [{ url: '/images/work-hero-section-image.webp.jpeg', width: 1280, height: 720, alt: 'JimTech AI Studio portfolio and web design showcase' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -32,7 +32,7 @@ export default function WorkPage() {
   return (
     <>
       <Navbar />
-      <main className="work-page">
+      <main id="main-content" tabIndex={-1} className="work-page">
         <section className="work-page-hero" aria-labelledby="work-hero-title">
           <div className="jt-container work-page-hero__inner">
             <p className="eyebrow work-page-hero__eyebrow"><span className="eyebrow-dot" /> Our work</p>

@@ -16,7 +16,7 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="section section--dark not-found-page">
+      <main id="main-content" tabIndex={-1} className="section section--dark not-found-page">
         <div className="jt-container not-found-content">
           <p className="eyebrow">404 · Page not found</p>
           <h1>This page isn’t here.</h1>
