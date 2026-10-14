@@ -28,6 +28,34 @@ const isLoopback = (hostname: string) => hostname === 'localhost' || hostname ==
 
 type PipelineEntry = { result?: unknown; error?: string };
 
+type FailureCategory = 'http_error' | 'redis_command_error' | 'malformed_response' | 'invalid_incr_result' | 'timeout' | 'network_error' | 'unknown';
+
+class StoreError extends Error {
+  constructor(readonly category: FailureCategory, message: string, readonly httpStatus?: number) {
+    super(message);
+  }
+}
+
+const safeText = (text: string) => text.replace(/\s+/g, ' ').slice(0, 200);
+
+function describeFailure(error: unknown) {
+  if (error instanceof StoreError) return { category: error.category, httpStatus: error.httpStatus, message: error.message };
+  if (error instanceof Error) {
+    if (error.name === 'TimeoutError' || error.name === 'AbortError') {
+      return { category: 'timeout' as const, httpStatus: undefined, message: 'request to store timed out' };
+    }
+    if (error instanceof SyntaxError) {
+      return { category: 'malformed_response' as const, httpStatus: undefined, message: 'store response was not valid JSON' };
+    }
+    if (error instanceof TypeError) {
+      const cause = error.cause as { code?: unknown } | undefined;
+      const code = typeof cause?.code === 'string' ? ` (${cause.code})` : '';
+      return { category: 'network_error' as const, httpStatus: undefined, message: `fetch failed${code}` };
+    }
+  }
+  return { category: 'unknown' as const, httpStatus: undefined, message: 'unexpected failure' };
+}
+
 export async function checkRateLimit(headers: Headers): Promise<RateLimitResult> {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -66,9 +94,16 @@ export async function checkRateLimit(headers: Headers): Promise<RateLimitResult>
       cache: 'no-store',
       signal: AbortSignal.timeout(3000),
     });
-    if (!response.ok) throw new Error(`store responded ${response.status}`);
+    if (!response.ok) throw new StoreError('http_error', `store responded ${response.status}`, response.status);
     const entries = (await response.json()) as PipelineEntry[];
-    if (!Array.isArray(entries) || entries.some((entry) => entry.error)) throw new Error('unexpected store response');
+    if (!Array.isArray(entries) || entries.length !== commands.length || entries.some((entry) => !entry || typeof entry !== 'object')) {
+      throw new StoreError('malformed_response', 'pipeline response is not an array matching the commands sent', response.status);
+    }
+    const failed = entries.findIndex((entry) => typeof entry.error === 'string');
+    if (failed >= 0) {
+      const name = String(commands[failed]?.[0]);
+      throw new StoreError('redis_command_error', `${name} failed: ${safeText(String(entries[failed].error))}`, response.status);
+    }
     return entries;
   };
 
@@ -80,7 +115,9 @@ export async function checkRateLimit(headers: Headers): Promise<RateLimitResult>
     ]);
     const count = entries[0]?.result;
     let ttl = entries[2]?.result;
-    if (typeof count !== 'number') throw new Error('unexpected store response');
+    if (typeof count !== 'number' || !Number.isInteger(count) || count < 1) {
+      throw new StoreError('invalid_incr_result', `INCR returned ${typeof count}, expected positive integer`);
+    }
 
     // A counter without an expiry would block this visitor forever; repair it.
     if (typeof ttl === 'number' && ttl < 0) {
@@ -94,7 +131,8 @@ export async function checkRateLimit(headers: Headers): Promise<RateLimitResult>
     }
     return { status: 'allowed' };
   } catch (error) {
-    console.error('[contact] Rate-limit store unavailable; refusing request.', error instanceof Error ? error.name : 'unknown');
+    const { category, httpStatus, message } = describeFailure(error);
+    console.error('[contact] Rate-limit store unavailable; refusing request.', { category, httpStatus, message });
     return { status: 'unavailable' };
   }
 }
