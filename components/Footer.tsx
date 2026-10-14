@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { contactInfo } from '@/data/contact';
 import { Icon } from './Icon';
+import CookiePreferencesButton from './CookiePreferencesButton';
 
 const footerLinks = [
   { label: 'Home', href: '/' },
@@ -43,7 +44,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} JimTech AI Studio</span><span>Built around real business problems.</span></div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} JimTech AI Studio</span><span className="footer-legal"><Link href="/privacy">Privacy Notice</Link><CookiePreferencesButton /></span><span>Built around real business problems.</span></div>
       </div>
     </footer>
   );
