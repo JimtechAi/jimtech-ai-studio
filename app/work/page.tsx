@@ -5,15 +5,16 @@ import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
 import { portfolioProjects } from '@/data/projects';
 import { Icon } from '@/components/Icon';
+import { webPageSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'Website Development Portfolio',
   description:
     'Explore JimTech AI Studio’s portfolio of websites, AI-powered digital experiences and business platforms for Nigerian and global brands.',
-  alternates: { canonical: 'https://jimtech.online/work' },
+  alternates: { canonical: 'https://www.jimtech.online/work' },
   openGraph: {
     type: 'website',
-    url: 'https://jimtech.online/work',
+    url: 'https://www.jimtech.online/work',
     title: 'Website Development Portfolio | JimTech AI Studio',
     description:
       'Browse the JimTech AI Studio website development portfolio featuring premium digital experiences, business websites, and AI-powered solutions.',
@@ -116,6 +117,7 @@ export default function WorkPage() {
         </section>
       </main>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema('/work', metadata)) }} />
     </>
   );
 }

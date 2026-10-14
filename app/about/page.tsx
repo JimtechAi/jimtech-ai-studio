@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Icon } from '@/components/Icon';
+import { webPageSchema } from '@/lib/structured-data';
 
 const approachSteps = [
   {
@@ -72,10 +73,10 @@ export const metadata: Metadata = {
   title: 'About Our AI Digital Agency',
   description:
     'JimTech AI Studio is a Lagos-based AI digital agency building premium websites, automation systems and AI solutions for ambitious businesses.',
-  alternates: { canonical: 'https://jimtech.online/about' },
+  alternates: { canonical: 'https://www.jimtech.online/about' },
   openGraph: {
     type: 'website',
-    url: 'https://jimtech.online/about',
+    url: 'https://www.jimtech.online/about',
     title: 'About Our AI Digital Agency | JimTech AI Studio',
     description:
       'JimTech AI Studio is a digital agency focused on website development, AI solutions, business automation and digital transformation for growing businesses.',
@@ -320,6 +321,7 @@ export default function AboutPage() {
         </section>
       </main>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema('/about', metadata)) }} />
     </>
   );
 }

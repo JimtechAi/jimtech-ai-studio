@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: '*', allow: '/' },
-    sitemap: 'https://jimtech.online/sitemap.xml',
-    host: 'https://jimtech.online',
+    sitemap: 'https://www.jimtech.online/sitemap.xml',
+    host: 'https://www.jimtech.online',
   };
 }

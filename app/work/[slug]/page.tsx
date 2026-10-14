@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProjectDetail from '@/components/ProjectDetail';
 import { getProjectBySlug, projects } from '@/data/projects';
+import { webPageSchema } from '@/lib/structured-data';
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
 
@@ -19,11 +20,11 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: `${project.title} Case Study`,
     description: project.description,
-    alternates: { canonical: `https://jimtech.online/work/${project.slug}` },
+    alternates: { canonical: `https://www.jimtech.online/work/${project.slug}` },
     openGraph: {
       title: `${project.title} | JimTech AI Studio`,
       description: project.description,
-      url: `https://jimtech.online/work/${project.slug}`,
+      url: `https://www.jimtech.online/work/${project.slug}`,
       type: 'article',
       images: project.images[0] ? [{ url: project.images[0].src, alt: project.images[0].alt, width: project.images[0].width, height: project.images[0].height }] : undefined,
     },
@@ -45,9 +46,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jimtech.online' },
-      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://jimtech.online/work' },
-      { '@type': 'ListItem', position: 3, name: project.title, item: `https://jimtech.online/work/${project.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.jimtech.online' },
+      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://www.jimtech.online/work' },
+      { '@type': 'ListItem', position: 3, name: project.title, item: `https://www.jimtech.online/work/${project.slug}` },
     ],
   };
 
@@ -57,6 +58,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <ProjectDetail project={project} />
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema(`/work/${project.slug}`, { title: `${project.title} Case Study`, description: project.description })) }} />
     </>
   );
 }

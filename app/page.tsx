@@ -9,15 +9,16 @@ import ProcessAndTechnology from '@/components/ProcessAndTechnology';
 import { About, Insights } from '@/components/AboutInsights';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { webPageSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'JimTech AI Studio | AI-Powered Websites & Automation',
   description:
     'JimTech AI Studio builds AI-powered websites, business automation and digital systems for businesses in Lagos, Nigeria and worldwide.',
-  alternates: { canonical: 'https://jimtech.online/' },
+  alternates: { canonical: 'https://www.jimtech.online/' },
   openGraph: {
     type: 'website',
-    url: 'https://jimtech.online/',
+    url: 'https://www.jimtech.online/',
     title: 'JimTech AI Studio | AI-Powered Websites & Automation',
     description:
       'JimTech AI Studio delivers premium website development, business automation, AI solutions and digital transformation for ambitious businesses.',
@@ -44,7 +45,7 @@ const servicesSchema = {
     'UI/UX Design',
     'SEO & Digital Growth',
     'Cloud & Maintenance',
-  ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name, provider: { '@type': 'Organization', name: 'JimTech AI Studio', url: 'https://jimtech.online' } } })),
+  ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name, provider: { '@type': 'Organization', name: 'JimTech AI Studio', url: 'https://www.jimtech.online' } } })),
 };
 
 export default function Home() {
@@ -64,6 +65,7 @@ export default function Home() {
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema('', metadata)) }} />
     </>
   );
 }

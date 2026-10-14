@@ -9,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jimtech.online"),
+  metadataBase: new URL("https://www.jimtech.online"),
   applicationName: "JimTech AI Studio",
   title: {
     default: "JimTech AI Studio | AI-Powered Websites & Automation",
@@ -42,11 +42,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: { canonical: "https://jimtech.online" },
+  alternates: { canonical: "https://www.jimtech.online" },
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://jimtech.online",
+    url: "https://www.jimtech.online",
     siteName: "JimTech AI Studio",
     title: "JimTech AI Studio | AI-Powered Websites & Automation",
     description:
@@ -67,8 +67,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "JimTech AI Studio",
-  url: "https://jimtech.online",
-  logo: "https://jimtech.online/jimtech-ai-studio-logo.png",
+  url: "https://www.jimtech.online",
+  logo: "https://www.jimtech.online/jimtech-ai-studio-logo.png",
   email: "jimtechai30@gmail.com",
   telephone: "+2347037547765",
   sameAs: ["https://www.instagram.com/jimtechaistudio/"],
@@ -85,23 +85,13 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://www.jimtech.online/#website",
   name: "JimTech AI Studio",
-  url: "https://jimtech.online",
+  url: "https://www.jimtech.online",
   description:
     "AI-powered websites, business automation, and digital growth solutions for ambitious businesses in Lagos, Nigeria and beyond.",
   inLanguage: "en-NG",
   publisher: { "@type": "Organization", name: "JimTech AI Studio" },
-};
-
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "JimTech AI Studio",
-  url: "https://jimtech.online",
-  description:
-    "JimTech AI Studio builds premium websites, AI-powered systems, automation, and digital transformation solutions for businesses seeking sustainable growth.",
-  isPartOf: { "@id": "https://jimtech.online/#website" },
-  inLanguage: "en-NG",
 };
 
 export default function RootLayout({
@@ -121,7 +111,6 @@ export default function RootLayout({
         <FloatingSocialButtons />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       </body>
     </html>
   );

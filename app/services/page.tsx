@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeading from '@/components/SectionHeading';
 import { Icon } from '@/components/Icon';
+import { webPageSchema } from '@/lib/structured-data';
 
 const services = [
   {
@@ -99,10 +100,10 @@ export const metadata: Metadata = {
   title: 'Website Development & AI Automation Services',
   description:
     'Website development, AI solutions, business automation and e-commerce from JimTech AI Studio, helping businesses in Lagos and worldwide grow.',
-  alternates: { canonical: 'https://jimtech.online/services' },
+  alternates: { canonical: 'https://www.jimtech.online/services' },
   openGraph: {
     type: 'website',
-    url: 'https://jimtech.online/services',
+    url: 'https://www.jimtech.online/services',
     title: 'Website Development & AI Automation Services | JimTech AI Studio',
     description:
       'From premium websites to AI solutions and business automation, JimTech AI Studio helps brands build digital systems that support long-term growth.',
@@ -262,6 +263,7 @@ export default function ServicesPage() {
         </section>
       </main>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema('/services', metadata)) }} />
     </>
   );
 }

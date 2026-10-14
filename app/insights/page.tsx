@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Icon } from '@/components/Icon';
+import { webPageSchema } from '@/lib/structured-data';
 
 const insightArticles = [
   {
@@ -54,10 +55,10 @@ export const metadata: Metadata = {
   title: 'AI & Business Automation Insights',
   description:
     'Practical insights on AI, website development, business automation and digital growth from JimTech AI Studio.',
-  alternates: { canonical: 'https://jimtech.online/insights' },
+  alternates: { canonical: 'https://www.jimtech.online/insights' },
   openGraph: {
     type: 'website',
-    url: 'https://jimtech.online/insights',
+    url: 'https://www.jimtech.online/insights',
     title: 'AI & Business Automation Insights | JimTech AI Studio',
     description:
       'JimTech AI Studio shares practical ideas on digital transformation, AI implementation, website strategy, and business automation for modern growth.',
@@ -151,6 +152,7 @@ export default function InsightsPage() {
         </section>
       </main>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema('/insights', metadata)) }} />
     </>
   );
 }
