@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Capabilities from '@/components/Capabilities';
+import PromoVideo from '@/components/PromoVideo';
 import Services from '@/components/Services';
 import WhyJimTech from '@/components/WhyJimTech';
 import SelectedWork from '@/components/SelectedWork';
@@ -55,6 +56,7 @@ export default function Home() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <Capabilities />
+        <PromoVideo />
         <Services />
         <WhyJimTech />
         <SelectedWork />

@@ -41,3 +41,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# promo video tooling: local HyperFrames state and scratch data (contain local paths)
+brag-output/**/.hyperframes/
+brag-output/**/.work/

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated promo-video project (third-party GSAP bundle and scripts), not site code.
+    "brag-output/**",
   ]),
 ]);
 
